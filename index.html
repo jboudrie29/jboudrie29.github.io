@@ -14,7 +14,7 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* Fond animé en gradient */
+    /* Fond animé subtil */
     body {
       background: linear-gradient(270deg, #ffffff, #f7f9fc, #ffffff);
       background-size: 600% 600%;
@@ -29,7 +29,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Animations texte */
+    /* Animation des titres */
     @keyframes slideFade {
       0% { opacity: 0; transform: translateX(-20px); }
       100% { opacity: 1; transform: translateX(0); }
@@ -56,7 +56,7 @@
       flex: 1 1 300px;
       max-width: 50%;
       min-height: 250px;
-      background-color: #fdf6e3; /* beige très clair */
+      background-color: #fdf6e3; /* beige clair */
       padding: 25px;
       border-radius: 12px;
       transition: all 0.3s ease;
@@ -78,7 +78,7 @@
     .left h2 {
       font-size: 1.4rem;
       margin-bottom: 15px;
-      color: #000;
+      color: #000; /* CC1 et CC2 en noir */
       font-weight: 600;
     }
 
@@ -87,6 +87,7 @@
       margin-bottom: 15px;
     }
 
+    /* Boutons noirs avec glow et interaction */
     .left a {
       display: inline-block;
       padding: 10px 18px;
@@ -113,6 +114,7 @@
       text-align: center;
     }
 
+    /* Image avec zoom et tilt */
     .right img {
       max-width: 100%;
       height: auto;
@@ -127,6 +129,7 @@
       box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     }
 
+    /* Légende sous l’image */
     .right .article-title, .right .article-authors {
       display: inline-block;
       background-color: rgba(255,255,255,0.9);
@@ -151,6 +154,7 @@
       font-style: italic;
     }
 
+    /* Pied de page */
     footer {
       text-align: center;
       padding: 20px;
@@ -212,3 +216,4 @@
 
 </body>
 </html>
+
