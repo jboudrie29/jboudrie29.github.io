@@ -27,6 +27,7 @@ body {
   z-index:2;
 }
 
+/* Colonnes gauche/droite */
 .left {
   flex:1 1 300px;
   max-width:50%;
@@ -100,6 +101,7 @@ footer {
   font-size:0.9rem;
 }
 
+/* Responsive */
 @media (max-width:768px){
   .container{flex-direction:column; padding:20px;}
   .left, .right{max-width:100%; text-align:center;}
@@ -110,9 +112,10 @@ footer {
 /* Bactéries */
 .bacteria {
   position:absolute;
+  width:25px;
   opacity:0.85;
-  pointer-events:auto;
   transition: transform 0.3s;
+  pointer-events:auto;
 }
 .bacteria:hover {
   transform: scale(1.2) translateX(20px) rotate(15deg);
@@ -123,6 +126,8 @@ footer {
   position:absolute;
   border-radius:50%;
   background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 60%);
+  width:20px;
+  height:20px;
   pointer-events:none;
   animation: vapeurRise 4s linear forwards;
 }
@@ -167,10 +172,10 @@ footer {
 
 <footer>© 2025 Julie Boudrie</footer>
 
-<!-- Flux bactéries + vapeur hyper-réaliste -->
+<!-- Flux bactéries + vapeur -->
 <script>
 const typesBacteries = ['bacterie1.png','bacterie2.png','bacterie3.png','bacterie4.png','bacterie5.png','bacterie6.png'];
-const fluxTotal = 35;
+const fluxTotal = 20;
 
 function creerBacterie(){
   const bac = document.createElement('img');
@@ -178,33 +183,32 @@ function creerBacterie(){
   bac.className = 'bacteria';
   bac.style.left = Math.random()*90 + '%';
   bac.style.top = '100vh';
-  bac.style.width = 15 + Math.random()*35 + 'px';
-  bac.style.animation = `hydroFlowDynamic ${8 + Math.random()*12}s linear forwards`;
+  bac.style.width = 15 + Math.random()*30 + 'px';
+  bac.style.animation = `hydroFlowDynamic ${10 + Math.random()*15}s linear forwards`;
   document.body.appendChild(bac);
 
-  // Créer plusieurs vapeurs autour
-  const vapeurs = 2 + Math.floor(Math.random()*3); // 2 à 4 vapeurs
-  for(let i=0;i<vapeurs;i++){
+  // Créer vapeur autour
+  for(let i=0;i<2;i++){
     const vapeur = document.createElement('div');
     vapeur.className = 'vapeur';
-    vapeur.style.left = (parseFloat(bac.style.left) + (Math.random()*6-3)) + '%';
+    vapeur.style.left = (parseFloat(bac.style.left) + (Math.random()*4-2)) + '%';
     vapeur.style.top = (window.innerHeight-50) + 'px';
-    vapeur.style.width = 10 + Math.random()*20 + 'px';
-    vapeur.style.height = 10 + Math.random()*20 + 'px';
-    vapeur.style.animationDuration = 3 + Math.random()*2 + 's';
+    vapeur.style.width = 10 + Math.random()*15 + 'px';
+    vapeur.style.height = 10 + Math.random()*15 + 'px';
     document.body.appendChild(vapeur);
-    setTimeout(()=>vapeur.remove(), (3 + Math.random()*2)*1000);
+    setTimeout(()=>vapeur.remove(),4000);
   }
 
+  // Réinjecter bactérie après animation
   bac.addEventListener('animationend', () => {
     bac.remove();
-    creerBacterie(); // réinjecter
+    creerBacterie();
   });
 }
 
-// Flux initial avec petits décalages
+// Flux initial
 for(let i=0;i<fluxTotal;i++){
-  setTimeout(creerBacterie, i*200);
+  setTimeout(creerBacterie, i*300);
 }
 </script>
 
