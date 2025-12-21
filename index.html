@@ -19,10 +19,13 @@
       padding: 40px;
       max-width: 1000px;
       margin: auto;
+      flex-wrap: wrap; /* Permet de passer en colonne sur petit écran */
     }
 
     .left {
+      flex: 1 1 300px; /* prend de la place mais minimum 300px */
       max-width: 50%;
+      margin-bottom: 20px;
     }
 
     .left h1 {
@@ -49,6 +52,7 @@
     }
 
     .right {
+      flex: 1 1 250px; /* flexible avec minimum 250px */
       max-width: 45%;
       text-align: center;
     }
@@ -67,6 +71,22 @@
     .right .article-authors {
       font-size: 0.9rem;
       color: #555;
+    }
+
+    /* Styles pour écrans petits */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .left, .right {
+        max-width: 100%;
+      }
+
+      .right {
+        margin-top: 20px;
+      }
     }
   </style>
 </head>
@@ -90,4 +110,3 @@
 
 </body>
 </html>
-
