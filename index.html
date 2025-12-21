@@ -31,8 +31,9 @@ footer { text-align:center; padding:20px; color:#666; border-top:1px solid #ddd;
 
 /* Bulles et bactéries */
 .bubble { position:absolute; border-radius:50%; opacity:0.7; pointer-events:none; transition: transform 0.2s;}
-.bacteria { position:absolute; pointer-events:auto; transition: transform 0.3s, filter 1s; }
-.bacteria:hover { transform: scale(1.2) translateX(10px) rotate(15deg); filter: drop-shadow(0 0 6px rgba(0,200,255,0.8)); }
+.bacteria { position:absolute; pointer-events:auto; transition: transform 0.3s, filter 1s; filter: drop-shadow(0 0 6px rgba(0,200,255,0.5)); }
+.bacteria:hover { transform: scale(1.2) translateX(10px) rotate(15deg); filter: drop-shadow(0 0 10px rgba(0,200,255,0.8)); }
+.halo { position:absolute; border-radius:50%; pointer-events:none; opacity:0.5; background: radial-gradient(circle, rgba(0,200,255,0.4) 0%, rgba(0,200,255,0) 70%); width:0; height:0; }
 </style>
 </head>
 <body>
@@ -60,12 +61,11 @@ footer { text-align:center; padding:20px; color:#666; border-top:1px solid #ddd;
 <footer>© 2025 Julie Boudrie</footer>
 
 <script>
-// Flux central hydrothermal
-const typesBubbles = ['bacterie1.png','bacterie2.png','bacterie3.png','bacterie4.png','bacterie5.png','bacterie6.png'];
+// Flux hydrothermal
+const typesBacteria = ['bacterie1.png','bacterie2.png','bacterie3.png','bacterie4.png','bacterie5.png','bacterie6.png'];
 const totalBubbles = 25;
 const totalBacteries = 15;
-
-const centerX = 50; // colonne centrale en %
+const centerX = 50;
 
 function creerBubble(){
   const bubble = document.createElement('div');
@@ -86,7 +86,9 @@ function creerBubble(){
 
   function animateBubble(){
     top -= vitesse*16;
-    let xOffset = Math.sin(Date.now()/200 + angle)*amplitude;
+    let dispersion = 0;
+    if(top < 120) dispersion = (top/120-1)*10;
+    let xOffset = Math.sin(Date.now()/200 + angle)*amplitude + dispersion;
     bubble.style.top = top+'px';
     bubble.style.left = (centerX + xOffset)+'%';
     if(top > -50){ requestAnimationFrame(animateBubble);}
@@ -97,7 +99,7 @@ function creerBubble(){
 
 function creerBacterie(){
   const bac = document.createElement('img');
-  bac.src = typesBubbles[Math.floor(Math.random()*typesBubbles.length)];
+  bac.src = typesBacteria[Math.floor(Math.random()*typesBacteria.length)];
   bac.className='bacteria';
   const size = 20 + Math.random()*25;
   bac.style.width = size+'px';
@@ -107,22 +109,35 @@ function creerBacterie(){
   bac.style.left = left+'%';
   document.body.appendChild(bac);
 
+  // Halo autour de la bactérie
+  const halo = document.createElement('div');
+  halo.className='halo';
+  const haloSize = size*2 + Math.random()*10;
+  halo.style.width = haloSize+'px';
+  halo.style.height = haloSize+'px';
+  halo.style.left = `calc(${left}% - ${haloSize/2}px)`;
+  halo.style.top = `calc(${top}px - ${haloSize/2}px)`;
+  document.body.appendChild(halo);
+
   const vitesse = 0.06 + Math.random()*0.05;
   const amplitude = 8 + Math.random()*5;
   const angle = Math.random()*Math.PI*2;
 
   function animateBac(){
     top -= vitesse*16;
-    let xOffset = Math.sin(Date.now()/250 + angle)*amplitude;
+    let dispersion = 0;
+    if(top < 120) dispersion = (top/120-1)*15;
+    let xOffset = Math.sin(Date.now()/250 + angle)*amplitude + dispersion;
     bac.style.top = top+'px';
     bac.style.left = (centerX + xOffset)+'%';
+    halo.style.top = (top - haloSize/2)+'px';
+    halo.style.left = (centerX + xOffset - haloSize/2)+'%';
     if(top > -50){ requestAnimationFrame(animateBac);}
-    else { bac.remove(); creerBacterie();}
+    else { bac.remove(); halo.remove(); creerBacterie();}
   }
   animateBac();
 }
 
-// Lancer flux
 for(let i=0;i<totalBubbles;i++){ setTimeout(creerBubble, i*150);}
 for(let i=0;i<totalBacteries;i++){ setTimeout(creerBacterie, i*200);}
 </script>
