@@ -1,14 +1,93 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Rendus_ADM_Julie_Boudrie</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Julie Boudrie</h1>
-    <h2>CC1 et CC2</h2>
-    <p>Cliquez sur le lien pour ouvrir les fichiers knités :</p>
-    <a href="Tutoriel_ADM.html" target="_blank">CC1</a>
-    <img src="siteweb.png" alt="Illustration">
-  </body>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Julie Boudrie - CC1 et CC2</title>
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .left {
+      max-width: 50%;
+    }
+
+    .left h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .left h2 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .left p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .left a {
+      display: inline-block;
+      margin-right: 10px;
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+
+    .right {
+      max-width: 45%;
+      text-align: center;
+    }
+
+    .right img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .right .article-title {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .right .article-authors {
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <h1>Julie Boudrie</h1>
+      <h2>CC1 et CC2 :</h2>
+      <p>Cliquez sur le lien pour ouvrir les fichiers knités :</p>
+      <a href="Tutoriel_ADM.html" target="_blank">CC1</a>
+      <a href="#">CC2</a>
+    </div>
+
+    <div class="right">
+      <img src="image.png" alt="Illustration">
+      <div class="article-title">Titre de l'article étudié</div>
+      <div class="article-authors">Nom des auteurs</div>
+    </div>
+  </div>
+
+</body>
 </html>
+
