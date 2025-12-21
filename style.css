@@ -6,7 +6,8 @@
 }
 
 body {
-  background: linear-gradient(180deg, #0a6cff, #4facfe);
-  color: white;
+  background: white;
+  color: #222;
   text-align: center;
 }
+
