@@ -26,6 +26,7 @@
       max-width: 1000px;
       margin: auto;
       flex-wrap: wrap; /* pour mobile */
+      gap: 20px; /* espace entre les colonnes */
     }
 
     /* Colonne gauche : texte et liens */
@@ -33,6 +34,9 @@
       flex: 1 1 300px;
       max-width: 50%;
       margin-bottom: 20px;
+      background-color: #f5f8ff; /* fond pastel léger */
+      padding: 20px;
+      border-radius: 10px;
     }
 
     .left h1 {
@@ -50,7 +54,7 @@
 
     .left p {
       font-size: 1rem;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     /* Boutons pour CC1/CC2 */
@@ -63,12 +67,13 @@
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
       transition: background 0.3s, transform 0.2s;
     }
 
     .left a:hover {
       background-color: #004999;
-      transform: scale(1.05);
+      transform: translateY(-2px);
     }
 
     /* Colonne de droite : image + article */
@@ -84,6 +89,14 @@
       border-radius: 12px;
       box-shadow: 0 12px 25px rgba(0,0,0,0.25);
       margin-bottom: 10px;
+    }
+
+    .right .article-title, .right .article-authors {
+      display: inline-block;
+      background-color: rgba(255,255,255,0.8);
+      padding: 4px 8px;
+      border-radius: 5px;
+      margin-top: 5px;
     }
 
     .right .article-title {
@@ -161,3 +174,4 @@
 
 </body>
 </html>
+
