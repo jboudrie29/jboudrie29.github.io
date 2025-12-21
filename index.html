@@ -6,146 +6,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-body {
-  background: radial-gradient(circle at top, #fff8f0, #ffffff 70%);
-  overflow:hidden;
-  color:#222;
-  position:relative;
-}
+html, body { height:100%; overflow-x:hidden; background: radial-gradient(circle at top, #fff8f0, #ffffff 70%); position:relative; color:#222;}
 
 /* Conteneur principal */
-.container {
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  max-width:1000px;
-  margin:auto;
-  padding:40px;
-  flex-wrap:wrap;
-  gap:20px;
-  position:relative;
-  z-index:2;
-}
-
-/* Colonnes gauche/droite */
-.left {
-  flex:1 1 300px;
-  max-width:50%;
-  background:#fdf6e3;
-  padding:25px;
-  border-radius:16px;
-  border:2px solid #f3dcb5;
-  transition: all 0.3s ease;
-  z-index:2;
-}
+.container { display:flex; justify-content:space-between; align-items:flex-start; max-width:1000px; margin:auto; padding:40px; flex-wrap:wrap; gap:20px; position:relative; z-index:2;}
+.left { flex:1 1 300px; max-width:50%; background:#fdf6e3; padding:25px; border-radius:16px; border:2px solid #f3dcb5; transition: all 0.3s ease; z-index:2;}
 .left:hover { box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 .left h1 { font-size:2.2rem; margin-bottom:10px; color:#111; font-weight:600;}
 .left h2 { font-size:1.4rem; margin-bottom:15px; color:#000; font-weight:600;}
 .left p { margin-bottom:15px;}
-.left a {
-  display:inline-block;
-  padding:12px 20px;
-  margin:5px 5px 0 0;
-  background: linear-gradient(145deg, #d9bfa2, #f5e6d9);
-  color:#000;
-  text-decoration:none;
-  border-radius:12px;
-  border:1px solid #c9a987;
-  font-weight:600;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-.left a:hover {
-  background: linear-gradient(145deg, #f5e6d9, #d9bfa2);
-  transform: translateY(-2px);
-  box-shadow:0 6px 14px rgba(0,0,0,0.2);
-}
-
-.right {
-  flex:1 1 250px;
-  max-width:45%;
-  text-align:center;
-  position:relative;
-  z-index:2;
-}
-.right img {
-  max-width:100%;
-  border-radius:12px;
-  box-shadow:0 12px 25px rgba(0,0,0,0.25);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.right img:hover { transform: scale(1.05) rotate(1deg); box-shadow:0 15px 30px rgba(0,0,0,0.3); }
-
-.right .article-title, .right .article-authors {
-  display:inline-block;
-  background: rgba(255,255,255,0.9);
-  padding:6px 10px;
-  border-radius:6px;
-  margin-top:5px;
-  opacity:0;
-  transform:translateY(10px);
-  animation: fadeIn 1s forwards;
-  animation-delay:0.5s;
-}
+.left a { display:inline-block; padding:12px 20px; margin:5px 5px 0 0; background: linear-gradient(145deg, #d9bfa2, #f5e6d9); color:#000; text-decoration:none; border-radius:12px; border:1px solid #c9a987; font-weight:600; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;}
+.left a:hover { background: linear-gradient(145deg, #f5e6d9, #d9bfa2); transform: translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,0.2);}
+.right { flex:1 1 250px; max-width:45%; text-align:center; position:relative; z-index:2;}
+.right img { max-width:100%; border-radius:12px; box-shadow:0 12px 25px rgba(0,0,0,0.25); transition: transform 0.3s, box-shadow 0.3s;}
+.right img:hover { transform: scale(1.05) rotate(1deg); box-shadow:0 15px 30px rgba(0,0,0,0.3);}
+.right .article-title, .right .article-authors { display:inline-block; background: rgba(255,255,255,0.9); padding:6px 10px; border-radius:6px; margin-top:5px; opacity:0; transform:translateY(10px); animation: fadeIn 1s forwards; animation-delay:0.5s;}
 .right .article-title { font-weight:bold; font-size:1.15rem; margin-bottom:5px; }
 .right .article-authors { font-size:0.9rem; color:#555; font-style:italic; }
 @keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
 
-footer {
-  text-align:center;
-  padding:20px;
-  color:#666;
-  border-top:1px solid #ddd;
-  margin-top:40px;
-  background:#fafafa;
-  font-size:0.9rem;
-}
+footer { text-align:center; padding:20px; color:#666; border-top:1px solid #ddd; margin-top:40px; background:#fafafa; font-size:0.9rem;}
 
-/* Responsive */
-@media (max-width:768px){
-  .container{flex-direction:column; padding:20px;}
-  .left, .right{max-width:100%; text-align:center;}
-  .right{margin-top:20px;}
-  .left a{margin:5px 5px 0 0;}
-}
+@media (max-width:768px){ .container{flex-direction:column; padding:20px;} .left, .right{max-width:100%; text-align:center;} .right{margin-top:20px;} .left a{margin:5px 5px 0 0;}}
 
 /* Bactéries */
-.bacteria {
-  position:absolute;
-  width:25px;
-  opacity:0.85;
-  transition: transform 0.3s;
-  pointer-events:auto;
-}
-.bacteria:hover {
-  transform: scale(1.2) translateX(20px) rotate(15deg);
-}
+.bacteria { position:absolute; opacity:0.85; pointer-events:auto; transition: transform 0.3s, filter 1s; will-change: transform, filter; }
+.bacteria:hover { transform: scale(1.2) translateX(20px) rotate(15deg); filter: drop-shadow(0 0 8px rgba(0,255,200,1)); }
 
 /* Vapeur / halo */
-.vapeur {
-  position:absolute;
-  border-radius:50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 60%);
-  width:20px;
-  height:20px;
-  pointer-events:none;
-  animation: vapeurRise 4s linear forwards;
-}
-
-@keyframes vapeurRise {
-  0% { transform: translateY(0px) scale(1); opacity:0.6;}
-  50% { transform: translateY(-30px) scale(1.3); opacity:0.4;}
-  100% { transform: translateY(-60px) scale(1.6); opacity:0;}
-}
-
-/* Animation bactéries (flux hydrothermal) */
-@keyframes hydroFlowDynamic {
-  0% { transform: translateY(0px) rotate(0deg) filter: hue-rotate(0deg);}
-  25% { transform: translate(50px,-25vh) rotate(45deg) filter: hue-rotate(30deg);}
-  50% { transform: translate(-30px,-50vh) rotate(90deg) filter: hue-rotate(60deg);}
-  75% { transform: translate(60px,-75vh) rotate(135deg) filter: hue-rotate(90deg);}
-  100% { transform: translate(0px,-100vh) rotate(180deg) filter: hue-rotate(120deg);}
-}
+.vapeur { position:absolute; border-radius:50%; pointer-events:none; animation: vapeurRise linear forwards; background: radial-gradient(circle, rgba(0,255,180,0.6), rgba(0,255,180,0)); will-change: transform, opacity;}
+@keyframes vapeurRise { 0% { transform: translateY(0px) scale(1); opacity:0.6;} 50% { transform: translateY(-30px) scale(1.3); opacity:0.4;} 100% { transform: translateY(-60px) scale(1.6); opacity:0;} }
 </style>
 </head>
 <body>
@@ -172,43 +62,56 @@ footer {
 
 <footer>© 2025 Julie Boudrie</footer>
 
-<!-- Flux bactéries + vapeur -->
 <script>
 const typesBacteries = ['bacterie1.png','bacterie2.png','bacterie3.png','bacterie4.png','bacterie5.png','bacterie6.png'];
-const fluxTotal = 20;
+let fluxTotal = 40;
+if(window.innerWidth < 768) fluxTotal = 20; // optimisation mobile
 
 function creerBacterie(){
   const bac = document.createElement('img');
   bac.src = typesBacteries[Math.floor(Math.random()*typesBacteries.length)];
   bac.className = 'bacteria';
-  bac.style.left = Math.random()*90 + '%';
-  bac.style.top = '100vh';
-  bac.style.width = 15 + Math.random()*30 + 'px';
-  bac.style.animation = `hydroFlowDynamic ${10 + Math.random()*15}s linear forwards`;
+  const taille = 15 + Math.random()*35;
+  bac.style.width = taille+'px';
+  const leftStart = Math.random()*90;
+  bac.style.left = leftStart+'%';
+  const topStart = window.innerHeight + Math.random()*50;
+  bac.style.top = topStart+'px';
   document.body.appendChild(bac);
 
-  // Créer vapeur autour
-  for(let i=0;i<2;i++){
-    const vapeur = document.createElement('div');
-    vapeur.className = 'vapeur';
-    vapeur.style.left = (parseFloat(bac.style.left) + (Math.random()*4-2)) + '%';
-    vapeur.style.top = (window.innerHeight-50) + 'px';
-    vapeur.style.width = 10 + Math.random()*15 + 'px';
-    vapeur.style.height = 10 + Math.random()*15 + 'px';
-    document.body.appendChild(vapeur);
-    setTimeout(()=>vapeur.remove(),4000);
-  }
+  const vitesse = 8 + Math.random()*12;
+  const amplitude = 20 + Math.random()*30;
+  const angle = Math.random()*Math.PI*2;
+  let start=null;
 
-  // Réinjecter bactérie après animation
-  bac.addEventListener('animationend', () => {
-    bac.remove();
-    creerBacterie();
-  });
+  function animate(timestamp){
+    if(!start) start=timestamp;
+    let progress = (timestamp-start)/1000;
+    let y = topStart - progress/vitesse*window.innerHeight;
+    let x = leftStart + Math.sin(progress*2+angle)*amplitude/10;
+    bac.style.transform = `translate(${x-leftStart}vw, ${y}px) rotate(${progress*360/vitesse}deg)`;
+    if(y > -50){ requestAnimationFrame(animate); }
+    else { bac.remove(); creerBacterie(); }
+  }
+  requestAnimationFrame(animate);
+
+  // Vapeurs autour
+  const vapeurs = 2 + Math.floor(Math.random()*4);
+  for(let i=0;i<vapeurs;i++){
+    const v = document.createElement('div');
+    v.className = 'vapeur';
+    v.style.width = 10 + Math.random()*15 + 'px';
+    v.style.height = 10 + Math.random()*15 + 'px';
+    v.style.left = (leftStart + (Math.random()*6-3)) + '%';
+    v.style.top = topStart + 'px';
+    v.style.animationDuration = 3 + Math.random()*3 + 's';
+    document.body.appendChild(v);
+    setTimeout(()=>v.remove(), (3 + Math.random()*3)*1000);
+  }
 }
 
-// Flux initial
 for(let i=0;i<fluxTotal;i++){
-  setTimeout(creerBacterie, i*300);
+  setTimeout(creerBacterie, i*150);
 }
 </script>
 
