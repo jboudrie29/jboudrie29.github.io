@@ -13,34 +13,27 @@ body {
   position:relative;
 }
 
-/* Bactéries animées en flux hydrothermal */
+/* Bactéries animées avec gradient de couleur et interaction souris */
 .bacteria {
   position:absolute;
-  opacity:0.9;
   width:30px;
+  opacity:0.9;
   animation-timing-function: linear;
+  transition: transform 0.3s;
 }
 
-@keyframes hydroFlow1 {
-  0% { transform: translate(0, 100vh) rotate(0deg);}
-  25% { transform: translate(50px, 70vh) rotate(45deg);}
-  50% { transform: translate(-30px, 40vh) rotate(90deg);}
-  75% { transform: translate(60px, 10vh) rotate(135deg);}
-  100% { transform: translate(0, -50vh) rotate(180deg);}
+/* Flux hydrothermal sinusoïdal et coloré */
+@keyframes hydroFlow {
+  0% { transform: translate(0, 100vh) rotate(0deg); filter: hue-rotate(0deg); }
+  25% { transform: translate(50px, 70vh) rotate(45deg); filter: hue-rotate(30deg); }
+  50% { transform: translate(-30px, 40vh) rotate(90deg); filter: hue-rotate(60deg); }
+  75% { transform: translate(60px, 10vh) rotate(135deg); filter: hue-rotate(90deg); }
+  100% { transform: translate(0, -50vh) rotate(180deg); filter: hue-rotate(120deg); }
 }
-@keyframes hydroFlow2 {
-  0% { transform: translate(0, 100vh) rotate(0deg);}
-  25% { transform: translate(-60px, 70vh) rotate(-30deg);}
-  50% { transform: translate(40px, 40vh) rotate(-60deg);}
-  75% { transform: translate(-50px, 10vh) rotate(-90deg);}
-  100% { transform: translate(0, -50vh) rotate(-120deg);}
-}
-@keyframes hydroFlow3 {
-  0% { transform: translate(0, 100vh) rotate(0deg);}
-  25% { transform: translate(80px, 70vh) rotate(30deg);}
-  50% { transform: translate(-50px, 40vh) rotate(60deg);}
-  75% { transform: translate(70px, 10vh) rotate(90deg);}
-  100% { transform: translate(0, -50vh) rotate(120deg);}
+
+/* Interaction souris */
+.bacteria:hover {
+  transform: scale(1.2) translateX(20px) rotate(15deg);
 }
 
 /* Conteneur principal */
@@ -63,15 +56,13 @@ body {
   background:#fdf6e3;
   padding:25px;
   border-radius:16px;
-  border:2px solid #f3dcb5; /* Cadre subtil autour des boutons */
+  border:2px solid #f3dcb5;
   transition: all 0.3s ease;
 }
 .left:hover { box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 .left h1 { font-size:2.2rem; margin-bottom:10px; color:#111; font-weight:600;}
 .left h2 { font-size:1.4rem; margin-bottom:15px; color:#000; font-weight:600;}
 .left p { margin-bottom:15px;}
-
-/* Boutons stylisés avec cadre cohérent */
 .left a {
   display:inline-block;
   padding:12px 20px;
@@ -97,7 +88,6 @@ body {
   text-align:center;
   position:relative;
 }
-
 .right img {
   max-width:100%;
   border-radius:12px;
@@ -121,7 +111,6 @@ body {
 }
 .right .article-title { font-weight:bold; font-size:1.15rem; margin-bottom:5px; }
 .right .article-authors { font-size:0.9rem; color:#555; font-style:italic; }
-
 @keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
 
 footer {
@@ -144,12 +133,13 @@ footer {
 </head>
 <body>
 
-<!-- Bactéries flottantes -->
-<img src="bacterie1.png" class="bacteria" style="left:10%; animation: hydroFlow1 18s infinite;">
-<img src="bacterie2.png" class="bacteria" style="left:30%; animation: hydroFlow2 22s infinite;">
-<img src="bacterie3.png" class="bacteria" style="left:50%; animation: hydroFlow3 20s infinite;">
-<img src="bacterie1.png" class="bacteria" style="left:70%; animation: hydroFlow1 19s infinite;">
-<img src="bacterie2.png" class="bacteria" style="left:85%; animation: hydroFlow2 21s infinite;">
+<!-- 6 bactéries animées avec flux hydrothermal -->
+<img src="bacterie1.png" class="bacteria" style="left:5%; animation: hydroFlow 15s infinite;">
+<img src="bacterie2.png" class="bacteria" style="left:18%; animation: hydroFlow 16s infinite;">
+<img src="bacterie3.png" class="bacteria" style="left:33%; animation: hydroFlow 17s infinite;">
+<img src="bacterie4.png" class="bacteria" style="left:50%; animation: hydroFlow 18s infinite;">
+<img src="bacterie5.png" class="bacteria" style="left:70%; animation: hydroFlow 19s infinite;">
+<img src="bacterie6.png" class="bacteria" style="left:85%; animation: hydroFlow 20s infinite;">
 
 <div class="container">
   <div class="left">
