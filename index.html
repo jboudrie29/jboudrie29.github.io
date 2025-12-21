@@ -4,14 +4,20 @@
   <meta charset="UTF-8">
   <title>Julie Boudrie - CC1 et CC2</title>
   <style>
-    body {
-      background-color: white;
-      color: black;
-      font-family: Arial, sans-serif;
+    /* Reset et police */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
+    body {
+      background: white;
+      color: #222;
+    }
+
+    /* Conteneur principal en deux colonnes */
     .container {
       display: flex;
       justify-content: space-between;
@@ -19,11 +25,12 @@
       padding: 40px;
       max-width: 1000px;
       margin: auto;
-      flex-wrap: wrap; /* Permet de passer en colonne sur petit écran */
+      flex-wrap: wrap; /* pour mobile */
     }
 
+    /* Colonne de gauche : texte */
     .left {
-      flex: 1 1 300px; /* prend de la place mais minimum 300px */
+      flex: 1 1 300px;
       max-width: 50%;
       margin-bottom: 20px;
     }
@@ -51,8 +58,9 @@
       font-weight: bold;
     }
 
+    /* Colonne de droite : image + article */
     .right {
-      flex: 1 1 250px; /* flexible avec minimum 250px */
+      flex: 1 1 250px;
       max-width: 45%;
       text-align: center;
     }
@@ -73,7 +81,7 @@
       color: #555;
     }
 
-    /* Styles pour écrans petits */
+    /* Adaptation mobile */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -93,6 +101,7 @@
 <body>
 
   <div class="container">
+    <!-- Colonne gauche : texte et liens -->
     <div class="left">
       <h1>Julie Boudrie</h1>
       <h2>CC1 et CC2 :</h2>
@@ -101,6 +110,7 @@
       <a href="#">CC2</a>
     </div>
 
+    <!-- Colonne droite : image et article -->
     <div class="right">
       <img src="image.png" alt="Illustration">
       <div class="article-title">Titre de l'article étudié</div>
@@ -110,3 +120,4 @@
 
 </body>
 </html>
+
