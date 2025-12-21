@@ -12,8 +12,9 @@
       font-family: Arial, sans-serif;
     }
 
+    /* Fond en dégradé léger */
     body {
-      background: white;
+      background: linear-gradient(to bottom, #ffffff, #f7f9fc);
       color: #222;
     }
 
@@ -25,7 +26,7 @@
       padding: 40px;
       max-width: 1000px;
       margin: auto;
-      flex-wrap: wrap; /* pour mobile */
+      flex-wrap: wrap;
       gap: 20px; /* espace entre les colonnes */
     }
 
@@ -57,12 +58,12 @@
       margin-bottom: 15px;
     }
 
-    /* Boutons pour CC1/CC2 */
+    /* Boutons CC1/CC2 noirs */
     .left a {
       display: inline-block;
       padding: 10px 18px;
       margin: 5px 5px 0 0;
-      background-color: #0066cc;
+      background-color: #000; /* noir */
       color: white;
       text-decoration: none;
       border-radius: 6px;
@@ -72,11 +73,11 @@
     }
 
     .left a:hover {
-      background-color: #004999;
+      background-color: #333; /* gris au survol */
       transform: translateY(-2px);
     }
 
-    /* Colonne de droite : image + article */
+    /* Colonne droite : image + article */
     .right {
       flex: 1 1 250px;
       max-width: 45%;
@@ -91,11 +92,12 @@
       margin-bottom: 10px;
     }
 
+    /* Légende sous l'image */
     .right .article-title, .right .article-authors {
       display: inline-block;
-      background-color: rgba(255,255,255,0.8);
-      padding: 4px 8px;
-      border-radius: 5px;
+      background-color: rgba(255,255,255,0.9);
+      padding: 6px 10px;
+      border-radius: 6px;
       margin-top: 5px;
     }
 
@@ -111,14 +113,15 @@
       font-style: italic;
     }
 
-    /* Pied de page */
+    /* Pied de page moderne */
     footer {
       text-align: center;
       padding: 20px;
-      color: #555;
-      border-top: 1px solid #eee;
+      color: #666;
+      border-top: 1px solid #ddd;
       margin-top: 40px;
       font-size: 0.9rem;
+      background-color: #fafafa;
     }
 
     /* Adaptation mobile */
