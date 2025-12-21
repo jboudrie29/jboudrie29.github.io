@@ -36,3 +36,119 @@
     }
 
     .left h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .left h2 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #0066cc;
+    }
+
+    .left p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Boutons pour CC1/CC2 */
+    .left a {
+      display: inline-block;
+      padding: 8px 15px;
+      margin: 5px 5px 0 0;
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .left a:hover {
+      background-color: #004999;
+    }
+
+    /* Colonne de droite : image + article */
+    .right {
+      flex: 1 1 250px;
+      max-width: 45%;
+      text-align: center;
+    }
+
+    .right img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .right .article-title {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .right .article-authors {
+      font-size: 0.9rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* Pied de page */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #555;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+    }
+
+    /* Adaptation mobile */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .left, .right {
+        max-width: 100%;
+      }
+
+      .right {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Colonne gauche : texte et liens -->
+    <div class="left">
+      <h1>Julie Boudrie</h1>
+      <h2>CC1 et CC2 :</h2>
+      <p>Cliquez sur le lien pour ouvrir les fichiers knités :</p>
+      <a href="Tutoriel_ADM.html" target="_blank">CC1</a>
+      <a href="#">CC2</a>
+    </div>
+
+    <!-- Colonne droite : image et article -->
+    <div class="right">
+      <img src="siteweb.png" alt="Illustration">
+      <div class="article-title">
+        Comparative Analysis of Microbial Diversity Across Temperature Gradients in Hot Springs From Yellowstone and Iceland
+      </div>
+      <div class="article-authors">
+        Peter T. Podar, Zamin Yang, Snædís H. Björnsdóttir, Mircea Podar
+      </div>
+    </div>
+  </div>
+
+  <!-- Pied de page -->
+  <footer>
+    © 2025 Julie Boudrie
+  </footer>
+
+</body>
+</html>
