@@ -91,7 +91,8 @@ function creerBacterie(){
     vapeurs.push(v);
   }
 
-  const vitesse = 0.8 + Math.random()*0.8; // vitesse en px/ms
+  // 🔹 Vitesse ralentie
+  const vitesse = 0.15 + Math.random()*0.1; // plus lent
   const amplitude = 15 + Math.random()*15;
   const angle = Math.random()*Math.PI*2;
 
