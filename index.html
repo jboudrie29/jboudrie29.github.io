@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Julie Boudrie - CC1 et CC2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(270deg, #ffffff, #f7f9fc, #ffffff);
+      background-size: 600% 600%;
+      animation: gradientMove 20s ease infinite;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes slideFade { 0% {opacity:0; transform:translateX(-20px);} 100% {opacity:1; transform:translateX(0);} }
+    @keyframes fadeIn { to {opacity:1; transform:translateY(0);} }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .left {
+      flex: 1 1 300px;
+      max-width: 50%;
+      background-color: #fdf6e3;
+      padding: 25px;
+      border-radius: 12px;
+      animation: slideFade 1s ease forwards;
+      transition: all 0.3s ease;
+    }
+
+    .left:hover {
+      background-color: #fff8e5;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .left h1 { font-size: 2.2rem; margin-bottom: 10px; color:#111; font-weight:600; }
+    .left h2 { font-size: 1.4rem; margin-bottom: 15px; color:#000; font-weight:600; }
+    .left p { font-size: 1rem; margin-bottom: 15px; }
+
+    .left a {
+      display:inline-block;
+      padding:10px 18px;
+      margin:5px 5px 0 0;
+      background-color:#000;
+      color:white;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:600;
+      box-shadow:0 4px 8px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .left a:hover {
+      background-color:#333;
+      transform: translateY(-2px);
+      box-shadow:0 4px 12px rgba(255,255,255,0.6);
+    }
+
+    .right {
+      flex:1 1 250px;
+      max-width:45%;
+      text-align:center;
+    }
+
+    .right img {
+      max-width:100%;
+      height:auto;
+      border-radius:12px;
+      box-shadow:0 12px 25px rgba(0,0,0,0.25);
+      margin-bottom:10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .right img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .right .article-title, .right .article-authors {
+      display:inline-block;
+      background-color: rgba(255,255,255,0.9);
+      padding:6px 10px;
+      border-radius:6px;
+      margin-top:5px;
+      opacity:0;
+      transform:translateY(10px);
+      animation: fadeIn 1s forwards;
+      animation-delay:0.5s;
+    }
+
+    .right .article-title { font-weight:bold; font-size:1.15rem; margin-bottom:5px; }
+    .right .article-authors { font-size:0.9rem; color:#555; font-style:italic; }
+
+    footer {
+      text-align:center;
+      padding:20px;
+      color:#666;
+      border-top:1px solid #ddd;
+      margin-top:40px;
+      font-size:0.9rem;
+      background-color:#fafafa;
+    }
+
+    @media (max-width:768px) {
+      .container { flex-direction:column; padding:20px; }
+      .left, .right { max-width:100%; text-align:center; }
+      .right { margin-top:20px; }
+      .left a { margin:5px 5px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>Julie Boudrie</h1>
+      <h2>CC1 et CC2 :</h2>
+      <p>Cliquez sur le lien pour ouvrir les fichiers knités :</p>
+      <a href="Tutoriel_ADM.html" target="_blank">CC1</a>
+      <a href="#">CC2</a>
+    </div>
+
+    <div class="right">
+      <img src="siteweb.png" alt="Illustration">
+      <div class="article-title">
+        Comparative Analysis of Microbial Diversity Across Temperature Gradients in Hot Springs From Yellowstone and Iceland
+      </div>
+      <div class="article-authors">
+        Peter T. Podar, Zamin Yang, Snædís H. Björnsdóttir, Mircea Podar
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Julie Boudrie
+  </footer>
+</body>
+</html>
