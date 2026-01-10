@@ -17,15 +17,20 @@ html, body { height:100%; overflow:hidden; background: radial-gradient(circle at
 .left p { margin-bottom:15px;}
 .left a { display:inline-block; padding:12px 20px; margin:5px 5px 0 0; background: linear-gradient(145deg, #d9bfa2, #f5e6d9); color:#000; text-decoration:none; border-radius:12px; border:1px solid #c9a987; font-weight:600; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease;}
 .left a:hover { background: linear-gradient(145deg, #f5e6d9, #d9bfa2); transform: translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,0.2);}
+
+/* Style spécifique pour le bouton PDF */
+.btn-pdf { background: linear-gradient(145deg, #eee, #fff) !important; border: 1px solid #ccc !important; color: #444 !important; font-size: 0.9rem !important; margin-top: 10px !important;}
+
 .right { flex:1 1 250px; max-width:45%; text-align:center; position:relative; z-index:2;}
 .right img { max-width:100%; border-radius:12px; box-shadow:0 12px 25px rgba(0,0,0,0.25); transition: transform 0.3s, box-shadow 0.3s;}
 .right img:hover { transform: scale(1.05) rotate(1deg); box-shadow:0 15px 30px rgba(0,0,0,0.3);}
 .right .article-title, .right .article-authors { display:inline-block; background: rgba(255,255,255,0.9); padding:6px 10px; border-radius:6px; margin-top:5px; opacity:0; transform:translateY(10px); animation: fadeIn 1s forwards; animation-delay:0.5s;}
 .right .article-title { font-weight:bold; font-size:1.15rem; margin-bottom:5px; }
 .right .article-authors { font-size:0.9rem; color:#555; font-style:italic; }
+
 @keyframes fadeIn { to { opacity:1; transform:translateY(0); } }
 
-footer { text-align:center; padding:20px; color:#666; border-top:1px solid #ddd; margin-top:40px; background:#fafafa; font-size:0.9rem;}
+footer { position: fixed; bottom: 0; width: 100%; text-align:center; padding:20px; color:#666; border-top:1px solid #ddd; background:#fafafa; font-size:0.9rem; z-index: 1;}
 
 @media (max-width:768px){ .container{flex-direction:column; padding:20px;} .left, .right{max-width:100%; text-align:center;} .right{margin-top:20px;} .left a{margin:5px 5px 0 0;}}
 
@@ -43,17 +48,24 @@ footer { text-align:center; padding:20px; color:#666; border-top:1px solid #ddd;
     <h2>CC1 et CC2 :</h2>
     <p>Cliquez sur le lien pour ouvrir les fichiers knités :</p>
     <a href="Tutoriel_ADM.html" target="_blank">CC1</a>
-    <a href="#">CC2</a>
+    <a href="Rapport_CC2.html" target="_blank">CC2</a>
+
+    <div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #d9bfa2;">
+        <p style="margin-bottom: 5px;"><strong>Données d'étude :</strong></p>
+        <a href="meta.pdf" target="_blank" class="btn-pdf">
+           📄 Table de métadonnées (PDF)
+        </a>
+    </div>
   </div>
 
   <div class="right">
     <img src="siteweb.png" alt="Illustration">
     <div class="article-title">
-     Comparative analysis of microbial diversity across temperature gradients in hot springs from Yellowstone and Iceland. Frontiers in Microbiology, 11, 1625. 
-     https://doi.org/10.3389/fmicb.2020.01625
+      Comparative analysis of microbial diversity across temperature gradients in hot springs from Yellowstone and Iceland. Frontiers in Microbiology, 11, 1625. 
+      https://doi.org/10.3389/fmicb.2020.01625
     </div>
     <div class="article-authors">
-      Peter T. Podar, Zamin Yang, Snædís H. Björnsdóttir, Mircea Podar(2020)
+      Peter T. Podar, Zamin Yang, Snædís H. Björnsdóttir, Mircea Podar (2020)
     </div>
   </div>
 </div>
@@ -61,11 +73,10 @@ footer { text-align:center; padding:20px; color:#666; border-top:1px solid #ddd;
 <footer>© 2025 Julie Boudrie</footer>
 
 <script>
-// Flux central hydrothermal avec dispersion en haut
+// Flux central hydrothermal
 const typesBubbles = ['bacterie1.png','bacterie2.png','bacterie3.png','bacterie4.png','bacterie5.png','bacterie6.png'];
 const totalBubbles = 25;
 const totalBacteries = 15;
-
 const centerX = 50;
 
 function creerBubble(){
